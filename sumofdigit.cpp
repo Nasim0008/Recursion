@@ -1,21 +1,21 @@
 #include<bits/stdc++.h>
 using namespace std;
-int fun(int n)
+int fun(int n,int cnt)
 {
-    static int cnt =0;
+    
     if(n==0)
     {
         return cnt ;
     }
-    cnt++;
+    cnt+=(n%10);
     n/=10;
-    fun(n);
+    fun(n,cnt);
 
 }
 int main()
 {
     int n;
     cin>>n;
-    int ans =fun(n);
+    int ans =fun(n,0);
     cout<<ans<<endl;
 }
