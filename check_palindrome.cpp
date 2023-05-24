@@ -1,35 +1,29 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
-void rev(int i,int n,string s)
+bool check(string s, int low, int high,int n)
 {
-    if(i>=(n/2))
-    {
-        return ;
-    }
-    swap(s[i],s[n-1-i]);
-    rev(i+1,n,s);
-}
-bool check(string s)
-{
-    string temp  = s ;
-    int n = s.size();
-    rev(0,n,s);
-    if(temp==s)
+    if (low==(n/2))
     {
         return true;
     }
-    return false;
+    if (s[low] != s[high])
+    {
+        return false;
+    }
+
+    return check(s, ++low, --high,n);
 }
 int main()
 {
     string s;
-    cin>>s;
-    if(check(s))
+    cin >> s;
+    bool flag = check(s, 0, s.size() - 1,s.size());
+    if (flag)
     {
-        cout<< "Yes"<<endl;
+        cout << "YES" << endl;
     }
     else
     {
-        cout<<"NO"<<endl;
+        cout << "NO" << endl;
     }
 }
