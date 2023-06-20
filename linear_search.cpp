@@ -1,17 +1,17 @@
 #include <bits/stdc++.h>
 using namespace std;
-vector<int> fun(int arr[], int i, int n, int target, vector<int> v)
+int fun(int arr[], int i, int n, int target)
 {
     if (i == n)
     {
-        return v;
+        return -1;
     }
     if (arr[i] != target)
     {
-        return fun(arr, ++i, n, target, v);
+        return fun(arr, ++i, n, target);
     }
-    v.push_back(i);
-    return fun(arr, ++i, n, target, v);
+    
+    return i;
 }
 int main()
 {
@@ -22,11 +22,6 @@ int main()
     {
         cin >> arr[i];
     }
-    vector<int> ve;
-    vector<int> v = fun(arr, 0, n,4, ve);
-    for (auto u : v)
-    {
-        cout << u << " ";
-    }
-    cout << endl;
+    cout<<fun(arr,0,n,5)<<endl;
+  
 }
