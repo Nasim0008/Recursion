@@ -1,16 +1,18 @@
 #include<bits/stdc++.h>
 using namespace std;
+bool flag = false;
 void fun(int ind,int n,vector<int>&v,int arr[],int target,int sum)
 {
     if(ind>=n)
     {
-        if(sum==target)
+        if(sum==target and flag == false)
         {
             for(auto u:v)
             {
                 cout<<u<< " ";
             }
             cout<<endl;
+            flag = true;
         }
         return;
     }
